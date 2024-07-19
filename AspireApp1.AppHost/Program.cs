@@ -2,8 +2,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("cache");
 
-var messaging = builder.AddKafka("messaging")
-    .WithExternalHttpEndpoints();
+var messaging = builder.AddKafka("messaging");
 
 var apiService = builder.AddProject<Projects.AspireApp1_ApiService>("apiservice")
     .WithReference(messaging);
